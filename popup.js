@@ -20,8 +20,8 @@ async function main() {
   // Strip any URL fragment (e.g. #issuecomment-…)
   const url = tab.url.replace(/#.*$/, '');
 
-  const html = `<a href="${url}">${title}</a>`;
-  const markdown = `[${title}](${url})`;
+  const html = `:pull-request:&nbsp;<a href="${url}">${title}</a>`;
+  const markdown = `:pull-request: [${title}](${url})`;
 
   try {
     await navigator.clipboard.write([
