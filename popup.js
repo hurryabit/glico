@@ -20,10 +20,16 @@ async function main() {
   // Strip any URL fragment (e.g. #issuecomment-…)
   const url = tab.url.replace(/#.*$/, '');
 
+  const html = `<a href="${url}">${title}</a>`;
   const markdown = `[${title}](${url})`;
 
   try {
-    await navigator.clipboard.writeText(markdown);
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([markdown], { type: 'text/plain' }),
+      }),
+    ]);
     statusEl.textContent = 'Copied!';
     setTimeout(() => window.close(), 600);
   } catch {

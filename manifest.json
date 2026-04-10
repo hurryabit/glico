@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub PR Link Copier",
-  "description": "Copy a GitHub PR title and URL to the clipboard as a Markdown link.",
+  "description": "Copy a GitHub PR title and URL to the clipboard.",
   "version": "1.0.0",
   "action": {
     "default_popup": "popup.html",
